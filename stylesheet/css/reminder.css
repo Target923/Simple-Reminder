@@ -1,0 +1,126 @@
+/* remainder.css */
+
+/* 全体のスタイル設定 */
+body {
+    font-family: 'Arial', sans-serif; /* フォントを指定 */
+    background-color: #f4f7f6; /* 背景色 */
+    color: #333; /* 文字色 */
+    margin: 20px; /* ページの余白 */
+    display: flex; /* Flexboxを使って要素を中央に配置しやすくする */
+    flex-direction: column; /* 要素を縦方向に並べる */
+    align-items: center; /* 中央揃え */
+    min-height: 90vh; /* ページの高さの最低値 (フッターがない場合) */
+}
+
+h1 {
+    color: #2c3e50; /* 見出しの色 */
+    margin-bottom: 30px; /* 下の余白 */
+    text-align: center; /* 中央揃え */
+}
+
+/* 入力セクションのスタイル */
+.input-section {
+    background-color: #ffffff; /* 背景色 */
+    padding: 25px; /* 内側の余白 */
+    border-radius: 8px; /* 角の丸み */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影 */
+    margin-bottom: 30px; /* 下の余白 */
+    display: flex; /* Flexboxを使って要素を整列 */
+    flex-direction: column; /* 要素を縦方向に並べる */
+    gap: 15px; /* 要素間の隙間 */
+    width: 90%; /* 幅を90%に設定 */
+    max-width: 400px; /* 最大幅 */
+}
+
+.input-section label {
+    font-weight: bold; /* ラベルの文字を太く */
+    color: #555;
+    margin-bottom: 5px; /* ラベルと入力フィールドの間の余白 */
+}
+
+.input-section input[type="number"],
+.input-section input[type="time"] {
+    width: calc(100% - 20px); /* 幅を計算 (パディング分を引く) */
+    padding: 10px; /* 内側の余白 */
+    border: 1px solid #ddd; /* ボーダー */
+    border-radius: 4px; /* 角の丸み */
+    font-size: 1rem; /* フォントサイズ */
+    box-sizing: border-box; /* パディングとボーダーを幅に含める */
+}
+
+.input-section input:focus {
+    border-color: #3498db; /* フォーカス時のボーダー色 */
+    outline: none; /* アウトラインを非表示 */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* フォーカス時の影 */
+}
+
+/* 設定セクション（ボタン）のスタイル */
+.setting-section {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    display: flex; /* ボタンを横並びにする */
+    flex-direction: column; /* スマートフォンでは縦に並べる */
+    gap: 15px; /* ボタン間の隙間 */
+}
+
+.setting-section button {
+    background-color: #3498db; /* ボタンの背景色 */
+    color: white; /* ボタンの文字色 */
+    padding: 12px 20px; /* パディング */
+    border: none; /* ボーダーなし */
+    border-radius: 5px; /* 角の丸み */
+    font-size: 1.1rem; /* フォントサイズ */
+    cursor: pointer; /* カーソルをポインターに */
+    transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+    width: 100%; /* 幅を親要素に合わせる */
+}
+
+/* リマインダー設定ボタンのホバースタイル */
+#addReminder:hover {
+    background-color: #2980b9;
+}
+
+/* リマインダー解除ボタンのホバースタイル */
+#removeReminder {
+    background-color: #e74c3c; /* 解除ボタンは赤系に */
+}
+
+#removeReminder:hover {
+    background-color: #c0392b;
+}
+
+
+/* レスポンシブ設定: 画面幅が768px以上の場合に適用 */
+@media (min-width: 768px) {
+    body {
+        margin: 40px; /* PCでの余白を調整 */
+    }
+
+    /* 入力セクション: PCでは少し幅を広げる */
+    .input-section {
+        max-width: 500px; /* PCでの最大幅を広げる */
+        padding: 30px;
+    }
+
+    .input-section label {
+        margin-bottom: 0; /* PCではラベル下の余白をリセット */
+    }
+
+    /* 設定セクション（ボタン）: PCでは横並びにする */
+    .setting-section {
+        flex-direction: row; /* PCでは横並びにする */
+        justify-content: center; /* 中央揃え */
+        max-width: 500px; /* PCでの最大幅を広げる */
+        padding: 30px;
+    }
+
+    .setting-section button {
+        width: auto; /* ボタンの幅はコンテンツに合わせる */
+        flex: 1; /* 各ボタンが均等にスペースを占めるように */
+        max-width: 200px; /* ボタンの最大幅 */
+    }
+}

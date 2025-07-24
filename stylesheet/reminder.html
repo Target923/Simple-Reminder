@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>シンプルリマインダー</title>
+        <link rel="stylesheet" href="./css/reminder.css">
+    </head>
+    <body>
+        <h1>シンプルリマインダー</h1>
+        <div class="input-section">
+            <label for="minute">何分毎: </label>
+            <input type="number" id="minutes" min="1" value="60">
+
+            <label for="startTime">開始時刻</label>
+            <input type="time" id="startTime">
+        </div>
+        
+        <div class="setting-section">
+            <button id="addReminder">リマインダーを設定</button>           
+            <button id="removeReminder">リマインダーを解除</button>
+        </div>
+        
+        <script src="./javascript/reminder.js"></script>
+    </body>
+</html>
