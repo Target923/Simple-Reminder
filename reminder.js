@@ -1,7 +1,7 @@
 // Service Workerの登録
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('/Simple-Reminder/sw.js')
         .then(function(registration) {
             window.serviceWorkerRegistration = registration; // グローバル保存
         })
@@ -58,8 +58,8 @@ async function triggerAlarm() {
             // Service Workerにデータ送信
             await window.serviceWorkerRegistration.showNotification('リマインダー通知', {
                 body: '時間になりました',
-                icon: '/icon-192x192.png',
-                badge: '/badge-72x72.png',
+                icon: '/Simple-Reminder/icon-192x192.png',
+                badge: '/Simple-Reminder/badge-72x72.png',
                 data: {
                     url: 'https://target923.github.io/Simple-Reminder/' // GitHub Pages
                 }
