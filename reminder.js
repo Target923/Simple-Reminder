@@ -53,15 +53,15 @@ async function requestNotificationPermission() {
 
 // アラーム関数（Service Worker経由）
 async function triggerAlarm() {
-    if (window.ServiceWorkerRegistration) {
+    if (window.serviceWorkerRegistration) {
         try {
             // Service Workerにデータ送信
-            await window.ServiceWorkerRegistration.showNotification('リマインダー通知', {
+            await window.serviceWorkerRegistration.showNotification('リマインダー通知', {
                 body: '時間になりました',
                 icon: '/icon-192x192.png',
                 badge: '/badge-72x72.png',
                 data: {
-                    url: 'http://localhost:8080' // 今回はローカル
+                    url: 'https://target923.github.io/Simple-Reminder/' // GitHub Pages
                 }
             });
         } catch {
