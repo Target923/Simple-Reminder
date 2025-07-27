@@ -64,7 +64,8 @@ async function triggerAlarm() {
                     url: 'https://target923.github.io/Simple-Reminder/' // GitHub Pages
                 }
             });
-        } catch {
+        } catch (error) {
+            console.error(error);
             alert('リマインダーアラートを表示しています');
         }
     } else {
