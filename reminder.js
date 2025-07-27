@@ -16,7 +16,7 @@ if ('serviceWorker' in navigator) {
 // HTML要素取得
 const minutesInput = document.getElementById('minutes');
 const startTimeInput = document.getElementById('startTime');
-const addReminederButton = document.getElementById('addReminder')
+const addReminderButton = document.getElementById('addReminder')
 const removeReminderButton = document.getElementById('removeReminder')
 
 let reminderIntervalId = null;
@@ -73,7 +73,7 @@ async function triggerAlarm() {
 }
 
 // イベントリスナー
-addReminederButton.addEventListener('click', async () => {
+addReminderButton.addEventListener('click', async () => {
     if (reminderIntervalId !== null) {
         clearInterval(reminderIntervalId);
         reminderIntervalId = null;
