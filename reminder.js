@@ -89,7 +89,7 @@ addReminderButton.addEventListener('click', async () => {
         return;
     }
 
-    const minutes = parseInt(minutesInput.value);
+    const minutes = parseFloat(minutesInput.value);
     const startTime = startTimeInput.value;
 
     // 入力値のバリデーション
