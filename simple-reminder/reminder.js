@@ -1,7 +1,7 @@
 // Service Workerの登録
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/Simple-Reminder/sw.js')
+        navigator.serviceWorker.register('/Tools/simple-reminder/sw.js')
         .then(function(registration) {
             window.serviceWorkerRegistration = registration; // グローバル保存
         })
