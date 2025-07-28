@@ -11,29 +11,27 @@
     <body>
         <h1>色塗り学習記録</h1>
         <div class="input-section">
-            <label for="startTime">開始時刻</label>
-            <input type="time" id="startTime">
+            <label for="startDay">開始日</label>
+            <input type="time" id="startDay">
 
-            <label for="endTime">終了時刻</label>
-            <input type="time" id="endTime">
-        </div>
-        <div class="schedule-section">
-            <button id="genarate_schedule">スケジュールを作成</button>           
-            <button id="reset_schedule">スケジュールをリセット</button>
+            <label for="endDay">終了日</label>
+            <input type="time" id="endTDay">
 
-            <div class="schedule">ここに表を作成</div>
-        </div>
-        <div class="color_palette">
-            <button id="color_palette::red" style="background-color: #FF0000;"></class>
-            <button id="color_palette::green" style="background-color: #00FF00;"></class>
-            <button id="color_palette::blue" style="background-color: #0000FF;"></class>
-            <button id="color_palette::yellow" style="background-color: #FFFF00;"></class>
-            <button id="color_palette::magenta" style="background-color: #FF00FF;"></class>
-            <button id="color_palette::skyblue" style="background-color: #00FFFF;"></class>
-            <button id="color_palette::black" style="background-color: #000000;"></class>
-            <button id="color_palette::orange" style="background-color: #FFA500;"></class>
-        </div>
-
+            <button id="generateSchedule">スケジュールを作成</button>           
+            <button id="resetSchedule">スケジュールをリセット</button>
+            </div>
+        <div class="color-palette">
+            <button class="color-1" data-color-class="color-1"></button>
+            <button class="color-2" data-color-class="color-2"></button>
+            <button class="color-3" data-color-class="color-3"></button>
+            <button class="color-4" data-color-class="color-4"></button>
+            <button class="color-5" data-color-class="color-5"></button>
+            <button class="color-6" data-color-class="color-6"></button>
+            <button class="color-7" data-color-class="color-7"></button>
+            <button class="color-8" data-color-class="color-8"></button>
+            </div>
+        <div id="schedule-grid-container">
+            </div>
 
         <script src="./color_learning.js"></script>
     </body>

@@ -55,19 +55,7 @@ h1 {
     box-shadow: 0 0 5px rgba(134, 32, 64, 0.5);
 }
 
-.schedule-section {
-    background-color: white;
-    padding: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    height: 45vh; /* 高さを90vhに設定 */
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.schedule-section button {
+.input-section button {
     background-color: goldenrod;
     color: white;
     border: none;
@@ -77,5 +65,52 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 100%;
+}
+
+#generateSchedule:hover {
+    background-color: gold;
+}
+
+#resetSchedule {
+    background-color: gray;
+}
+
+#resetSchedule:hover {
+    background-color: silver;
+}
+
+.color-palette {
+    width: 90%;
+    padding: 5px 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-bottom: 5px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+}
+
+.color-palette button {
+    width: 100%;
+    padding-top: 100%;
+    background-color: #862040;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#schedule-grid-container {
+    background-color: white;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 90%;
+    height: 45vh;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px;
 }
 
