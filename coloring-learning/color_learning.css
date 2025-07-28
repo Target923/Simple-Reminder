@@ -41,7 +41,8 @@ h1 {
     color: #555;
 }
 
-.input-section input[type="time"] {
+.input-section input[type="date"],
+.input-section input[type="number"] {
     width: 100%;
     padding: 10px;
     border: 3px solid #862040;
@@ -95,11 +96,19 @@ h1 {
 .color-palette button {
     width: 100%;
     padding-top: 100%;
-    background-color: #862040;
     border: none;
     border-radius: 20px;
     cursor: pointer;
 }
+
+.color-1 { background-color: red; } /* 薄い赤 */
+.color-2 { background-color: blue; } /* 薄い緑 */
+.color-3 { background-color: green; } /* 薄い青 */
+.color-4 { background-color: orange; } /* 薄い黄 */
+.color-5 { background-color: orangered; } /* 薄い紫 */
+.color-6 { background-color: purple; } /* 薄いオレンジ */
+.color-7 { background-color: violet; } /* 薄いグレー */
+.color-8 { background-color: skyblue; } /* 薄い茶色 */
 
 #schedule-grid-container {
     background-color: white;
@@ -108,9 +117,32 @@ h1 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 90%;
-    height: 45vh;
+    height: auto;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    gap: 5px;
 }
 
+/* JavaScriptで付与 */
+.grid-cell {
+    position: relative;
+    border: 1px solid #555;
+    overflow: hidden;;
+}
+.time-block {
+    background-color: #fdfdfd;
+    cursor: pointer;
+}
+.time-block-content { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em; 
+    color: #888;
+}
