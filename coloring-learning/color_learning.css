@@ -1,0 +1,81 @@
+/* 全体のスタイル設定 */
+/* すべての要素に box-sizing: border-box を適用する */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* フォントファミリー */
+    background-color: #f4f7f6; /* 背景色 */
+    margin: 20px; /* マージンをリセット */
+    color: #333; /* 文字色 */
+    display: flex; /* Flexboxを使用 */
+    flex-direction: column; /* 縦方向に配置 */
+    align-items: center; /* 中央揃え */
+    min-height: 90vh; /* 最小高さ */
+}
+
+h1 {
+    color: #862040; /* 見出しの色 */
+    margin-bottom: 30px; /* 下のマージン */
+    text-align: center; /* 中央揃え */
+}
+
+.input-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.input-section label {
+    font-weight: bold;
+    color: #555;
+}
+
+.input-section input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    border: 3px solid #862040;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.input-section input:focus {
+    border-color: goldenrod;
+    outline: none;
+    box-shadow: 0 0 5px rgba(134, 32, 64, 0.5);
+}
+
+.schedule-section {
+    background-color: white;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    height: 45vh; /* 高さを90vhに設定 */
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.schedule-section button {
+    background-color: goldenrod;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
