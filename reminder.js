@@ -66,7 +66,7 @@ async function triggerAlarm() {
             });
         } catch (error) {
             console.error(error);
-            alert('リマインダーアラートを表示しています');
+            alert('トラブル発生: 詳細はエラーログをご確認ください');
         }
     } else {
         alert('リマインダーアラートを表示しています');
@@ -95,7 +95,7 @@ addReminderButton.addEventListener('click', async () => {
 
     // 入力値のバリデーション
     if (isNaN(minutes) || minutes <= 0) {
-        alert('「何分毎」に1以上の有効な数値を入力してください');
+        alert('「何分毎」に有効な数値を入力してください');
         return;
     }
     if (!startTime) {
