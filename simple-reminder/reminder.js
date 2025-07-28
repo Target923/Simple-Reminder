@@ -58,8 +58,8 @@ async function triggerAlarm() {
             // Service Workerにデータ送信
             await window.serviceWorkerRegistration.showNotification('リマインダー通知', {
                 body: '時間になりました',
-                icon: '/Simple-Reminder/icon-192x192.png',
-                badge: '/Simple-Reminder/badge-72x72.png',
+                icon: '/Tools/simple-reminder/icon-192x192.png',
+                badge: '/Tools/simple-reminder/badge-72x72.png',
                 data: {
                     url: 'https://target923.github.io/Tools/simple-reminder' // GitHub Pages
                 }

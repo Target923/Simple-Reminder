@@ -1,8 +1,8 @@
 self.addEventListener('push', function(event) {
     let options = {
         body: 'リマインダー発動',
-        icon: '/Simple-Reminder/icon-192x192.png',
-        badge: '/Simple-Reminder/badge-72x72.png'
+        icon: '/Tools/simple-reminder/icon-192x192.png',
+        badge: '/Tools/simple-reminder/badge-72x72.png'
     };
 
     if (event.data) {
