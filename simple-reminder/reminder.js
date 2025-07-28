@@ -61,7 +61,7 @@ async function triggerAlarm() {
                 icon: '/Simple-Reminder/icon-192x192.png',
                 badge: '/Simple-Reminder/badge-72x72.png',
                 data: {
-                    url: 'https://target923.github.io/Simple-Reminder/' // GitHub Pages
+                    url: 'https://target923.github.io/Tools/simple-reminder' // GitHub Pages
                 }
             });
         } catch (error) {
