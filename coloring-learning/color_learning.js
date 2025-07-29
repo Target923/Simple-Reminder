@@ -1,4 +1,5 @@
 let currentSelectedColorClass = null;
+let previewSelected = null;
 
 // HTML要素取得
 // const minutesInput = document.getElementById('minutes');
@@ -10,10 +11,16 @@ const scheduleGridContainer = document.getElementById('schedule-grid-container')
 // イベントリスナー
 generateGridButton.addEventListener('click', () => {
     colorPalette.addEventListener('click', (event) => {
+        const currentSelected = event.target;
         if (event.target.tagName === 'BUTTON' && event.target.dataset.colorClass) {
             currentSelectedColorClass = event.target.dataset.colorClass;
             console.log(`選択された色: ${currentSelectedColorClass}`);
-            // 追加ロジック
+            
+            if (previewSelected) {
+                previewSelected.classList.remove('selected-color');
+            }
+            currentSelected.classList.add('selected-color');
+            previewSelected = currentSelected;
         }
     });
 
@@ -53,16 +60,22 @@ function generateGrid() {
                             clickedBlock.classList.remove(cls);
                         }
                     });
+                    clickedBlock.classList.add(currentSelectedColorClass)
 
-                    clickedBlock.classList.add(currentSelectedColorClass);
-
-                    saveGridState(clickedBlock.dataset.index, currentSelectedColorClass);
-                    console.log(`セル ${clickedBlock.dataset.index} に色 ${currentSelectedColorClass} を保存しました。`);
-                    
                     const selectDateInput = document.getElementById('selectDate');
                     const selectDate = new Date(selectDateInput.value);
-                    contentWrapper.textContent = `${selectDate.getMonth() + 1}/${selectDate.getDate()}`;
-                }
+                    if (selectDate.getTime()) {
+                        contentWrapper.textContent = `${selectDate.getMonth() + 1}/${selectDate.getDate()}`;
+                    } else {
+                        contentWrapper.textContent = '';
+                    }
+
+                    const cellData = {
+                        color: currentSelectedColorClass,
+                        date: contentWrapper.textContent,
+                    }
+                    saveGridState(clickedBlock.dataset.index, cellData);
+                    console.log(`セル ${clickedBlock.dataset.index} に色 ${currentSelectedColorClass} を保存しました。`);}
             });
 
             scheduleGridContainer.appendChild(timeBlockCell);
@@ -76,19 +89,24 @@ function generateGrid() {
  * @param {string} colorClass - セルに適用する色のクラス
  */
 
-function saveGridState(index, colorClass) {
+function saveGridState(index, cellData) {
     let savedState = JSON.parse(localStorage.getItem('gridColors')) || {};
-    savedState[index] = colorClass;
+    savedState[index] = cellData;
     localStorage.setItem('gridColors', JSON.stringify(savedState));
 }
 
 function loadGridState() {
     const savedState = JSON.parse(localStorage.getItem('gridColors'));
     if (savedState) {
-        Object.entries(savedState).forEach(([index, colorClass]) => {
+        Object.entries(savedState).forEach(([index, cellData]) => {
             const cell = scheduleGridContainer.querySelector(`[data-index="${index}"]`);
-            if (cell) {
-                cell.classList.add(colorClass);
+            if (cell && cellData && typeof cellData === 'object') {
+                if (cellData.color) {
+                    cell.classList.add(cellData.color);
+                }
+                if (cellData.date && cell.querySelector('.time-block-content')) {
+                    cell.querySelector('.time-block-content').textContent = cellData.date;
+                }
             }
         });
     }

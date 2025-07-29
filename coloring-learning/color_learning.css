@@ -97,7 +97,7 @@ h1 {
     width: 100%;
     padding-top: 100%;
     border: none;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -110,9 +110,13 @@ h1 {
 .color-7 { background-color: violet; } /* 薄いグレー */
 .color-8 { background-color: skyblue; } /* 薄い茶色 */
 
+.selected-color {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 1);
+}
+
 #schedule-grid-container {
     background-color: white;
-    padding: 15px;
+    padding: 0;
     border-radius: 4px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 90%;
@@ -120,14 +124,16 @@ h1 {
     height: auto;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
+    gap: 0;
+    border: 5px solid black;
 }
 
 /* JavaScriptで付与 */
 .grid-cell {
     position: relative;
     padding-top: 100%;
-    border: 1px solid gray;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
     overflow: hidden;
     cursor: pointer;
 }
@@ -140,6 +146,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.5em; 
+    font-size: 1.5vw;
     color: black;
 }
