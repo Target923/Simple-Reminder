@@ -68,15 +68,15 @@ h1 {
     width: 100%;
 }
 
-#generateSchedule:hover {
+#generateGrid:hover {
     background-color: gold;
 }
 
-#resetSchedule {
+#resetGrid {
     background-color: gray;
 }
 
-#resetSchedule:hover {
+#resetGrid:hover {
     background-color: silver;
 }
 
@@ -121,17 +121,14 @@ h1 {
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
-    gap: 5px;
 }
 
 /* JavaScriptで付与 */
 .grid-cell {
     position: relative;
-    border: 1px solid #555;
-    overflow: hidden;;
-}
-.time-block {
-    background-color: #fdfdfd;
+    padding-top: 100%;
+    border: 1px solid gray;
+    overflow: hidden;
     cursor: pointer;
 }
 .time-block-content { 
@@ -143,6 +140,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.8em; 
-    color: #888;
+    font-size: 0.5em; 
+    color: black;
 }
