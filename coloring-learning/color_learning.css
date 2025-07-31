@@ -23,7 +23,16 @@ h1 {
     text-align: center; /* 中央揃え */
 }
 
-.input-section {
+.form-section {
+    padding: 0 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap:15px;
+}
+
+.form-box {
     background-color: white;
     padding: 25px;
     border-radius: 8px;
@@ -31,18 +40,19 @@ h1 {
     margin-bottom: 30px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 15px;
     width: 90%;
     max-width: 400px;
 }
 
-.input-section label {
+.form-box label {
     font-weight: bold;
     color: #555;
 }
 
-.input-section input[type="date"],
-.input-section input[type="number"] {
+.form-box input[type="date"],
+.form-box input[type="number"] {
     width: 100%;
     padding: 10px;
     border: 3px solid #862040;
@@ -50,13 +60,13 @@ h1 {
     font-size: 1rem;
 }
 
-.input-section input:focus {
+.form-box input:focus {
     border-color: goldenrod;
     outline: none;
     box-shadow: 0 0 5px rgba(134, 32, 64, 0.5);
 }
 
-.input-section button {
+.form-box button {
     background-color: goldenrod;
     color: white;
     border: none;
@@ -114,18 +124,19 @@ h1 {
     box-shadow: 0 0 3px rgba(0, 0, 0, 1);
 }
 
-#schedule-grid-container {
+#grid-container {
     background-color: white;
     padding: 0;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 90%;
     height: auto;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     gap: 0;
-    border: 5px solid black;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+
 }
 
 /* JavaScriptで付与 */

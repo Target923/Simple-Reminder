@@ -6,7 +6,7 @@ let previewSelected = null;
 const generateGridButton = document.getElementById('generateGrid');
 const resetGridButton = document.getElementById('resetGrid');
 const colorPalette = document.querySelector('.color-palette');
-const scheduleGridContainer = document.getElementById('schedule-grid-container')
+const gridContainer = document.getElementById('grid-container')
 
 // イベントリスナー
 generateGridButton.addEventListener('click', () => {
@@ -29,13 +29,14 @@ generateGridButton.addEventListener('click', () => {
 });
 
 resetGridButton.addEventListener('click', () => {
-    localStorage.removeItem('gridColors');
-    generateGrid();
-    console.log('学習表の状態をリセットしました');
+    const hasGrid = gridContainer.childElementCount > 0;
+    if (hasGrid) {
+        resetGrid();
+    }
 });
 
 function generateGrid() {
-    scheduleGridContainer.innerHTML = '';
+    gridContainer.innerHTML = '';
     const gridSize = 16;
 
     for (let row = 0; row < gridSize; row++) {
@@ -78,9 +79,15 @@ function generateGrid() {
                     console.log(`セル ${clickedBlock.dataset.index} に色 ${currentSelectedColorClass} を保存しました。`);}
             });
 
-            scheduleGridContainer.appendChild(timeBlockCell);
+            gridContainer.appendChild(timeBlockCell);
         }
     }
+}
+
+function resetGrid() {
+    localStorage.removeItem('gridColors');
+    generateGrid();
+    console.log('学習表の状態をリセットしました');
 }
 
 /**
@@ -99,7 +106,7 @@ function loadGridState() {
     const savedState = JSON.parse(localStorage.getItem('gridColors'));
     if (savedState) {
         Object.entries(savedState).forEach(([index, cellData]) => {
-            const cell = scheduleGridContainer.querySelector(`[data-index="${index}"]`);
+            const cell = gridContainer.querySelector(`[data-index="${index}"]`);
             if (cell && cellData && typeof cellData === 'object') {
                 if (cellData.color) {
                     cell.classList.add(cellData.color);

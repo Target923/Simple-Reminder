@@ -10,29 +10,31 @@
     </head>
     <body>
         <h1>色塗り学習記録</h1>
-        <div class="input-section">
-            <label for="selectDate">日付</label>
-            <input type="date" id="selectDate">
+        <div class="form-section">
+            <div class="form-box">
+                <label for="selectDate">日付</label>
+                <input type="date" id="selectDate">
 
-            <label for="minutes">1マス何分</label>
-            <input type="number" id="minutes" min="1" value="15">
-
-            <button id="generateGrid">学習表を作成</button>           
-            <button id="resetGrid">学習表をリセット</button>
-            </div>
-        <div class="color-palette">
-            <button class="color-1" data-color-class="color-1"></button>
-            <button class="color-2" data-color-class="color-2"></button>
-            <button class="color-3" data-color-class="color-3"></button>
-            <button class="color-4" data-color-class="color-4"></button>
-            <button class="color-5" data-color-class="color-5"></button>
-            <button class="color-6" data-color-class="color-6"></button>
-            <button class="color-7" data-color-class="color-7"></button>
-            <button class="color-8" data-color-class="color-8"></button>
-            </div>
-        <div id="schedule-grid-container">
-            </div>
-
+                <label for="minutes">1マス何分</label>
+                <input type="number" id="minutes" min="1" value="15">
+                </div>
+            <div class="form-box">
+                <button id="generateGrid">学習記録表を作成</button>           
+                <button id="resetGrid">学習記録表をリセット</button>
+                </div>
+        </div>
+            <div class="color-palette">
+                <button class="color-1" data-color-class="color-1"></button>
+                <button class="color-2" data-color-class="color-2"></button>
+                <button class="color-3" data-color-class="color-3"></button>
+                <button class="color-4" data-color-class="color-4"></button>
+                <button class="color-5" data-color-class="color-5"></button>
+                <button class="color-6" data-color-class="color-6"></button>
+                <button class="color-7" data-color-class="color-7"></button>
+                <button class="color-8" data-color-class="color-8"></button>
+                </div>
+            <div id="grid-container">
+                </div> 
         <script src="./color_learning.js"></script>
     </body>
 </html>
