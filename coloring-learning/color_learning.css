@@ -7,29 +7,26 @@
 }
 
 body {
-    font-family: Arial, sans-serif; /* フォントファミリー */
-    background-color: #f4f7f6; /* 背景色 */
-    margin: 20px; /* マージンをリセット */
-    color: #333; /* 文字色 */
-    display: flex; /* Flexboxを使用 */
-    flex-direction: column; /* 縦方向に配置 */
-    align-items: center; /* 中央揃え */
-    min-height: 90vh; /* 最小高さ */
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
 }
 
 h1 {
-    color: #862040; /* 見出しの色 */
-    margin-bottom: 30px; /* 下のマージン */
-    text-align: center; /* 中央揃え */
+    color: #862040;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .form-section {
     padding: 0 25px;
-    display: flex;
-    flex-direction: row;
     justify-content: center;
-    width: 100%;
-    gap:15px;
+    width: 90%;
 }
 
 .form-box {
@@ -37,12 +34,11 @@ h1 {
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 15px;
-    width: 90%;
+    width: 100%;
     max-width: 400px;
 }
 
@@ -111,14 +107,14 @@ h1 {
     cursor: pointer;
 }
 
-.color-1 { background-color: red; } /* 薄い赤 */
-.color-2 { background-color: blue; } /* 薄い緑 */
-.color-3 { background-color: green; } /* 薄い青 */
-.color-4 { background-color: orange; } /* 薄い黄 */
-.color-5 { background-color: orangered; } /* 薄い紫 */
-.color-6 { background-color: purple; } /* 薄いオレンジ */
-.color-7 { background-color: violet; } /* 薄いグレー */
-.color-8 { background-color: skyblue; } /* 薄い茶色 */
+.color-1 { background-color: red; }
+.color-2 { background-color: blue; }
+.color-3 { background-color: green; }
+.color-4 { background-color: orange; }
+.color-5 { background-color: orangered; }
+.color-6 { background-color: purple; }
+.color-7 { background-color: violet; }
+.color-8 { background-color: skyblue; }
 
 .selected-color {
     box-shadow: 0 0 3px rgba(0, 0, 0, 1);
@@ -132,7 +128,6 @@ h1 {
     max-width: 90%;
     height: auto;
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
     gap: 0;
     border-top: 2px solid black;
     border-left: 2px solid black;
@@ -157,6 +152,12 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.5vw;
+    font-size: 3vw;
     color: black;
+}
+
+@media (min-width: 768px) {
+    #grid-container {
+        width: 50%
+    }
 }
