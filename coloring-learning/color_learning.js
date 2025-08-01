@@ -9,6 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const colorPalette = document.querySelector('.color-palette');
     const gridContainer = document.getElementById('grid-container');
 
+    // ウィンドウ固定用
+    const colorPaletteOffset = colorPalette.offsetTop - 20;
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > colorPaletteOffset) {
+            colorPalette.classList.add('color-palette_fixed');
+        } else {
+            colorPalette.classList.remove('color-palette_fixed');
+        }
+    });
+
     colorPalette.addEventListener('click', (event) => {
         const currentSelected = event.target;
         if (event.target.tagName === 'BUTTON' && event.target.dataset.colorClass) {
