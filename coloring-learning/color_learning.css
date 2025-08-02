@@ -19,13 +19,14 @@ body {
 
 h1 {
     color: #862040;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     text-align: center;
 }
 
 .form-section {
     padding: 0 25px;
     justify-content: center;
+    justify-items: center;
     width: 90%;
 }
 
@@ -122,11 +123,14 @@ h1 {
 
 .color-palette_fixed {
     position: fixed;
-    padding: 5px 20px;
     top: 20px;
-    width: 90%;
-    max-width: 400px;
     z-index: 1000;
+}
+#color-palette-placeholder {
+    width: 90%;
+    padding: 5px 20px;
+    max-width: 400px;
+    margin-bottom: 5px;
 }
 
 #grid-container {

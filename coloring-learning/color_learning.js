@@ -11,11 +11,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ウィンドウ固定用
     const colorPaletteOffset = colorPalette.offsetTop - 20;
+    const placeholder = document.createElement('div');
     window.addEventListener('scroll', () => {
         if (window.scrollY > colorPaletteOffset) {
+            const paletteHeight = colorPalette.offsetHeight;
+            const paletteWidth = colorPalette.offsetWidth;
+
             colorPalette.classList.add('color-palette_fixed');
+            colorPalette.style.width = `${paletteWidth}px`;
+            
+            placeholder.style.height = `${paletteHeight}px`
+            if (!placeholder.parentNode) {
+                placeholder.id = 'color-palette-placeholder';
+                colorPalette.parentNode.insertBefore(placeholder, colorPalette.nextSibling)
+            }
         } else {
             colorPalette.classList.remove('color-palette_fixed');
+            if (placeholder.parentNode) {
+                placeholder.remove();
+            }
         }
     });
 
