@@ -27,7 +27,7 @@ h1 {
     padding: 0 25px;
     justify-content: center;
     justify-items: center;
-    width: 90%;
+    width: 100%;
 }
 
 .form-box {
@@ -87,6 +87,11 @@ h1 {
     background-color: silver;
 }
 
+#UI-container {
+    width: 100%;
+    justify-items: center;
+}
+
 .color-palette {
     width: 90%;
     padding: 5px 20px;
@@ -116,6 +121,7 @@ h1 {
 .color-6 { background-color: purple; }
 .color-7 { background-color: violet; }
 .color-8 { background-color: skyblue; }
+/* .color-9 { background-color: white; } */
 
 .selected-color {
     box-shadow: 0 0 3px rgba(0, 0, 0, 1);
@@ -131,6 +137,12 @@ h1 {
     padding: 5px 20px;
     max-width: 400px;
     margin-bottom: 5px;
+}
+
+.drawTime {
+    width: 100px;
+    padding-top: 100%;
+    border-radius: 10px;
 }
 
 #grid-container {

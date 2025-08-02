@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ウィンドウ固定用
     const colorPaletteOffset = colorPalette.offsetTop - 20;
     const placeholder = document.createElement('div');
-    window.addEventListener('scroll', () => {
+    const handleScrollAndResize = () => {
         if (window.scrollY > colorPaletteOffset) {
             const paletteHeight = colorPalette.offsetHeight;
             const paletteWidth = colorPalette.offsetWidth;
@@ -27,8 +27,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } else {
             colorPalette.classList.remove('color-palette_fixed');
+            colorPalette.style.width = '';
+
             if (placeholder.parentNode) {
                 placeholder.remove();
+            }
+        }
+    };
+    window.addEventListener('scroll', handleScrollAndResize);
+    window.addEventListener('resize', handleScrollAndResize);
+
+    // 時間表示
+    const gridContainerOffset = gridContainer.offsetTop - 20;
+    const containerUI = document.getElementById('UI-container')
+    const sumTime = document.createElement('div');
+    sumTime.classList.add('drawTime');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > gridContainerOffset) {
+            if (!containerUI.contains(sumTime)) {
+                containerUI.appendChild(sumTime);
+            }
+        } else {
+            if (containerUI.contains(sumTime)) {
+                containerUI.removeChild(sumTime);
             }
         }
     });
