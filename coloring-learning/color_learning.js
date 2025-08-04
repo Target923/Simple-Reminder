@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSelectedColorClass = null;
     let previewSelected = null;
 
-    // const minutesInput = document.getElementById('minutes');
+    const minutesInput = document.getElementById('minutes');
     const generateGridButton = document.getElementById('generateGrid');
     const resetGridButton = document.getElementById('resetGrid');
     const colorPalette = document.querySelector('.color-palette');
@@ -38,19 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', handleScrollAndResize);
 
     // 時間表示
-    const gridContainerOffset = gridContainer.offsetTop - 20;
-    const containerUI = document.getElementById('UI-container')
-    const sumTime = document.createElement('div');
-    sumTime.classList.add('drawTime');
+    const gridContainerOffset = gridContainer.offsetTop - 400;
+    const sumTime = document.getElementById('drawTime')
     window.addEventListener('scroll', () => {
         if (window.scrollY > gridContainerOffset) {
-            if (!containerUI.contains(sumTime)) {
-                containerUI.appendChild(sumTime);
-            }
+            sumTime.classList.add('is-visible');
         } else {
-            if (containerUI.contains(sumTime)) {
-                containerUI.removeChild(sumTime);
-            }
+            sumTime.classList.remove('is-visible');
         }
     });
 
