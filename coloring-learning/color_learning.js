@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let currentSelectedColorClass = null;
     let previewSelected = null;
+    let TotalTime = 0;
 
     const minutesInput = document.getElementById('minutes');
     const generateGridButton = document.getElementById('generateGrid');
@@ -38,8 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', handleScrollAndResize);
 
     // 時間表示
-    const gridContainerOffset = gridContainer.offsetTop - 400;
-    const sumTime = document.getElementById('drawTime')
+    const gridContainerOffset = gridContainer.offsetTop - 800;
+    const sumTime = document.getElementById('drawTime');
+    const sumTimeText = document.createElement('drawTime-text');
+    sumTimeText.classList.add('sumTimeText');
+    sumTime.appendChild(sumTimeText);
+
     window.addEventListener('scroll', () => {
         if (window.scrollY > gridContainerOffset) {
             sumTime.classList.add('is-visible');
@@ -99,12 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 timeBlockCell.addEventListener('click', (event) => {
                     const clickedBlock = event.currentTarget;
                     if (currentSelectedColorClass) {
-                        clickedBlock.classList.forEach(cls => {
-                            if (cls.startsWith('color-')) {
-                                clickedBlock.classList.remove(cls);
-                            }
-                        });
-                        clickedBlock.classList.add(currentSelectedColorClass)
+                        if (clickedBlock.classList.contains(currentSelectedColorClass)) {
+                            clickedBlock.classList.remove(currentSelectedColorClass);
+                            updateTimeLog(false);
+                        } else {
+                            clickedBlock.classList.forEach(cls => {
+                                if (cls.startsWith('color-')) {
+                                    clickedBlock.classList.remove(cls);
+                                }
+                            });
+                            clickedBlock.classList.add(currentSelectedColorClass)
+                            updateTimeLog(true);
+                        }
 
                         const selectDateInput = document.getElementById('selectDate');
                         const selectDate = new Date(selectDateInput.value);
@@ -119,7 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             date: contentWrapper.textContent,
                         }
                         saveGridState(clickedBlock.dataset.index, cellData);
-                        console.log(`セル ${clickedBlock.dataset.index} に色 ${currentSelectedColorClass} を保存しました。`);}
+                        console.log(`セル ${clickedBlock.dataset.index} に色 ${currentSelectedColorClass} を保存しました。`);
+                    }
                 });
 
                 gridContainer.appendChild(timeBlockCell);
@@ -131,12 +143,27 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem('gridColors');
         generateGrid();
         console.log('学習表の状態をリセットしました');
+        TotalTime = 0;
+        sumTimeText.textContent = `0分`
+    }
+
+    function updateTimeLog(hasColor) {
+        const minAsNum = parseInt(minutesInput.value, 10);
+
+        if (!isNaN(minAsNum)) {
+            if (hasColor) {
+                TotalTime += minAsNum;
+                sumTimeText.textContent = `${TotalTime}分`
+            } else {
+                TotalTime -= minAsNum;
+                sumTimeText.textContent = `${TotalTime}分`
+            }
+        }
     }
 
     /**
      * セルの状態を保存する関数
      * @param {number} index - セルのインデックス
-     * @param {string} colorClass - セルに適用する色のクラス
      */
 
     function saveGridState(index, cellData) {
